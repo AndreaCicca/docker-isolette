@@ -6,7 +6,7 @@ Note that this is not a complete implementation and it will need to be expanded 
 This environment is not to be used as-is and it will probably need some tweaks for your specific needs.
 Thus, I recommend you use this tool ONLY if you know how to use Docker properly.
 
-The amd64/linux image is available at ....
+The linux/amd64 image is available at https://hub.docker.com/r/giammisimo/isolette
 
 The repository provides the two files necessary to build the image on your own.
 
