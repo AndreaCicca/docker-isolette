@@ -29,3 +29,8 @@ docker run --rm -v <isolette_repository>:/Isolette isolette [build | run]
 ```
 - `build` builds the project, `prepare.sh` and `build.sh` are executed
 - `run` runs all tests, `run_all_ut.sh` and `run_all_scenarios.sh` are executed
+
+### Other containers
+Dockerfiles for other useful containers will be added during the project to address specific needs.
+- light: lighter version of the default container, only building tools
+- sphinx: tools needed to build the specification paper

@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt update
+RUN apt install -y python3 python3-pip python3-sphinx
+RUN pip install sphinxcontrib.tikz sphinxcontrib-bibtex sphinxcontrib-blockdiag
+RUN apt install -y texlive-latex-base texlive-latex-extra texlive-latex-recommended latexmk texlive-lang-greek
+
+COPY latex.sh /latex.sh
+ENTRYPOINT ["bash","/latex.sh"]
