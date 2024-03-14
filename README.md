@@ -16,7 +16,8 @@ The repository provides the two files necessary to build the image on your own.
 The image currently offers building and testing.
 Git and gnuplot functionalities are not provided and are meant to be used outside of the container. If needed they can be added to the image via Dockerfile and a custom build.
 
-The git repository for the project is to be mounted to the `/Isolette` dir.
+Since other scripts (like `clean.sh`) rely on the path of the CMake compilation, it is important to bind the git repository directory to the same path of the host system (`-v` flag in the run command).
+Furthermore, it is important to run the container as the current user to avoid permission headaches (`-u`).
 
 #### Build the image
 ```
@@ -25,10 +26,11 @@ docker build -t isolette:latest .
 
 #### Run the container
 ```
-docker run --rm -v <isolette_repository>:/Isolette isolette [build | run]
+docker run --rm -v $(pwd)/Isolette:$(pwd)/Isolette -u $(id -u):$(id -g) isolette [build | run] $(pwd)
 ```
 - `build` builds the project, `prepare.sh` and `build.sh` are executed
 - `run` runs all tests, `run_all_ut.sh` and `run_all_scenarios.sh` are executed
+- `$(pwd)` is the path of the parent directory of the Git repository
 
 ### Other containers
 Dockerfiles for other useful containers will be added during the project to address specific needs.

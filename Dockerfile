@@ -7,4 +7,6 @@ RUN apt install -y flex bison
 RUN pip install strictdoc
 RUN cd /usr/src/googletest && cmake . && cmake --build . --target install
 COPY entry.sh /entry.sh
+# Used for pretty formatting
+ENV LANG en_US.UTF-8
 ENTRYPOINT ["bash","/entry.sh"]

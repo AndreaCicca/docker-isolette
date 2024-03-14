@@ -13,6 +13,6 @@ RUN apt install -y libboost-random-dev libboost-log-dev libboost-thread-dev libb
 RUN apt install -y flex bison
 RUN cd /usr/src/googletest && cmake . && cmake --build . --target install
 COPY entry.sh /entry.sh
+# Used for pretty formatting
 ENV LANG en_US.UTF-8
-## TODO Handle permissions
 ENTRYPOINT ["bash","/entry.sh"]
