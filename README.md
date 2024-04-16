@@ -36,3 +36,9 @@ docker run --rm -v $(pwd)/Isolette:$(pwd)/Isolette -u $(id -u):$(id -g) isolette
 Dockerfiles for other useful containers will be added during the project to address specific needs.
 - light: lighter version of the default container, only building tools
 - sphinx: tools needed to build the specification paper
+
+### `sphinx`
+The sphinx container builds the specification paper using the building scripts provided in the Isolette repository.
+```
+docker run --rm -v $(pwd)/Isolette:/Isolette -u $(id -u):$(id -g) sphinx
+```
