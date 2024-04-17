@@ -24,6 +24,11 @@ Furthermore, it is important to run the container as the current user to avoid p
 docker build -t isolette:latest .
 ```
 
+### Build the sphinx image
+```
+docker build -t isolette_sphinx:latest -f Dockerfile_sphinx .
+```
+
 #### Run the container
 ```
 docker run --rm -v $(pwd)/Isolette:$(pwd)/Isolette -u $(id -u):$(id -g) isolette [build | run] $(pwd)
