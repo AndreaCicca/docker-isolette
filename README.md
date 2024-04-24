@@ -41,6 +41,7 @@ Dockerfiles for other useful containers will be added during the project to addr
 
 ## `sphinx`
 The sphinx container builds the specification paper using the building scripts provided in the Isolette repository.
+The amd64 image is available at https://hub.docker.com/r/giammisimo/sphinx
 #### Build
 ```
 docker build -t isolette_sphinx:latest -f Dockerfile_sphinx .
