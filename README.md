@@ -7,6 +7,7 @@ This environment is not to be used as-is and it will probably need some tweaks f
 Thus, I recommend you use this tool ONLY if you know how to use Docker properly.
 
 The amd64 image is available at https://hub.docker.com/r/giammisimo/isolette
+
 The arm64 image is available at https://hub.docker.com/r/andreacicca/isolette
 
 The repository provides the two files necessary to build the image on your own.
@@ -24,17 +25,13 @@ Furthermore, it is important to run the container as the current user to avoid p
 docker build -t isolette:latest .
 ```
 
-### Build the sphinx image
-```
-docker build -t isolette_sphinx:latest -f Dockerfile_sphinx .
-```
-
 #### Run the container
 ```
-docker run --rm -v $(pwd)/Isolette:$(pwd)/Isolette -u $(id -u):$(id -g) isolette [build | run] $(pwd)
+docker run --rm -v $(pwd)/Isolette:$(pwd)/Isolette -u $(id -u):$(id -g) isolette [build | run | build_run] $(pwd)
 ```
 - `build` builds the project, `prepare.sh` and `build.sh` are executed
 - `run` runs all tests, `run_all_ut.sh` and `run_all_scenarios.sh` are executed
+- `build_run` runs both of the above commands
 - `$(pwd)` is the path of the parent directory of the Git repository
 
 ### Other containers
@@ -42,8 +39,14 @@ Dockerfiles for other useful containers will be added during the project to addr
 - light: lighter version of the default container, only building tools
 - sphinx: tools needed to build the specification paper
 
-### `sphinx`
+## `sphinx`
 The sphinx container builds the specification paper using the building scripts provided in the Isolette repository.
+The amd64 image is available at https://hub.docker.com/r/giammisimo/sphinx
+#### Build
+```
+docker build -t isolette_sphinx:latest -f Dockerfile_sphinx .
+```
+#### Run
 ```
 docker run --rm -v $(pwd)/Isolette:/Isolette -u $(id -u):$(id -g) sphinx
 ```
