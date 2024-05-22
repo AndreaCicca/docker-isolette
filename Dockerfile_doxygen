@@ -8,5 +8,10 @@ RUN pip install sphinxcontrib.tikz sphinxcontrib-bibtex sphinxcontrib-blockdiag
 RUN apt install -y texlive-latex-base texlive-latex-extra texlive-latex-recommended latexmk texlive-lang-greek
 RUN apt install -y doxygen
 
+RUN apt install -y build-essential gcc-10 g++-10 libgtest-dev cmake
+RUN apt install -y libboost-random-dev libboost-log-dev libboost-thread-dev libboost-filesystem-dev
+RUN apt install -y flex bison
+
+
 COPY entry_doxygen.sh /latex.sh
 ENTRYPOINT ["bash","/latex.sh"]
