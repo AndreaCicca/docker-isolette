@@ -50,3 +50,9 @@ docker build -t isolette_sphinx:latest -f Dockerfile_sphinx .
 ```
 docker run --rm -v $(pwd)/Isolette:/Isolette -u $(id -u):$(id -g) sphinx
 ```
+
+## `doxygen`
+```
+docker build -t isolette_doxygen:latest -f Dockerfile_doxygen .
+docker run --rm -v <isolette_path>:/Isolette isolette_doxygen:latest
+```
