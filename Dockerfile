@@ -13,9 +13,5 @@ COPY entry.sh /entry.sh
 # Used for pretty formatting
 ENV LANG en_US.UTF-8
 
-# Imposta i compilatori GCC 12 come predefiniti
-ENV CC=/usr/bin/gcc-12
-ENV CXX=/usr/bin/g++-12
-
 
 ENTRYPOINT ["bash","/entry.sh"]
