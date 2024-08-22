@@ -11,7 +11,7 @@ RUN apt install -y doxygen
 RUN apt install -y build-essential gcc-12 g++-12 libgtest-dev cmake
 RUN apt install -y libboost-random-dev libboost-log-dev libboost-thread-dev libboost-filesystem-dev
 RUN apt install -y flex bison
-
+RUN apt install -y graphviz
 
 COPY entry_doxygen.sh /latex.sh
 ENTRYPOINT ["bash","/latex.sh"]
